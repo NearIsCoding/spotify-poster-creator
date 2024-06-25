@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/CSS/cards.css">
+    <title>Album Selection</title>
+</head>
+
+<body>
+    <h1>Artist: {{ artistName }}</h1>
+        <div class="container">
+            <form action="#" method="POST">
+                <div class="grid-wrapper grid-col-auto">
+                    {% for album in albums %}
+                    <label for="radio-card-{{loop.index}}" class="radio-card">
+                        <input type="radio" name="radio-card" id="radio-card-{{loop.index}}" value="{{loop.index}}" checked />
+                        <div class="card-content-wrapper">
+                            <span class="check-icon"></span>
+                            <div class="card-content">
+                                <img src="{{ album['images'][0]['url'] }}" alt="" />
+                                <h4>{{ album['name'] }}</h4>
+                            </div>
+                        </div>
+                    </label>
+                    {% endfor %}
+                    <!-- /.radio-card -->
+                </div>
+                <!-- /.grid-wrapper -->
+                <button type="submit" value="Submit">Submit</button>
+            </form>
+        </div>
+        <!-- /.container -->
+        
+</body>
+
+</html>
+
+
